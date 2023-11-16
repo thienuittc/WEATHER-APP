@@ -25,9 +25,10 @@ class WeatherScreenViewModel extends ChangeNotifier
     EasyLoading.show();
     try {
       _currentWeather = await ws.currentWeatherByCityName(cityName);
-      notifyListeners();
-      getWeatherList(cityName: cityName);
+
+      await getWeatherList(cityName: cityName);
       EasyLoading.dismiss();
+      notifyListeners();
       return true;
     } on Exception catch (e) {
       EasyLoading.showError('ERROR');
@@ -53,9 +54,9 @@ class WeatherScreenViewModel extends ChangeNotifier
     try {
       _currentWeather = await ws.currentWeatherByLocation(
           position.latitude, position.longitude);
-      notifyListeners();
-      getWeatherList(position: position);
+      await getWeatherList(position: position);
       EasyLoading.dismiss();
+      notifyListeners();
     } on Exception catch (e) {
       EasyLoading.showError('ERROR');
     }
@@ -70,7 +71,6 @@ class WeatherScreenViewModel extends ChangeNotifier
         _weatherList = await ws.fiveDayForecastByLocation(
             position!.latitude, position.longitude);
       }
-      notifyListeners();
     } on Exception catch (e) {}
   }
 

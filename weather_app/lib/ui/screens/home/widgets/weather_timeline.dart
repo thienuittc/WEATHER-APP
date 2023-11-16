@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:weather_app/core/utils/date_time_extension.dart';
 import 'package:weather_app/core/view_models/screens/interfaces/iweather_screen_view_model.dart';
 
-import '../../../constants.dart';
+import '../../../../constants.dart';
 
 class TemperatureData {
   final String time;
@@ -55,7 +55,11 @@ class WeatherTimeline extends StatelessWidget {
                                         borderRadius: BorderRadius.circular(8)),
                                   ),
                                   Image.network(
-                                      'https://openweathermap.org/img/wn/${e.weatherIcon}.png'),
+                                    'https://openweathermap.org/img/wn/${e.weatherIcon}.png',
+                                    errorBuilder:
+                                        (context, error, stackTrace) =>
+                                            SizedBox.shrink(),
+                                  ),
                                   Text(e.date.toDateString()),
                                 ],
                               ),

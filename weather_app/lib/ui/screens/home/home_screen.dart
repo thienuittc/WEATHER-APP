@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
-import 'package:weather_app/ui/screens/widgets/background.dart';
-import 'package:weather_app/ui/screens/widgets/weather_details.dart';
+import 'package:weather_app/ui/screens/home/widgets/background.dart';
+import 'package:weather_app/ui/screens/home/widgets/weather_details.dart';
 
-import '../../core/view_models/screens/interfaces/iweather_screen_view_model.dart';
+import '../../../core/view_models/screens/interfaces/iweather_screen_view_model.dart';
 import 'widgets/enter_city_dialog.dart';
 import 'widgets/weather_timeline.dart';
 
@@ -17,15 +17,15 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  late IWeatherScreenViewModel iWeatherScreenViewModel;
+  // late IWeatherScreenViewModel iWeatherScreenViewModel;
   TextEditingController controller = TextEditingController();
   @override
   void initState() {
     super.initState();
-    iWeatherScreenViewModel = context.read<IWeatherScreenViewModel>();
-    Future.delayed(Duration.zero, () async {
-      await iWeatherScreenViewModel.init();
-    });
+    // iWeatherScreenViewModel = context.read<IWeatherScreenViewModel>();
+    // Future.delayed(Duration.zero, () async {
+    //   await iWeatherScreenViewModel.init();
+    // });
   }
 
   @override
