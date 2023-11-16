@@ -71,7 +71,7 @@ class _MyAppState extends State<MyApp> {
             title: 'WEATHER',
             navigatorKey: NavigationUtils.navigatorKey,
             onGenerateRoute: (settings) => MyRouter.generateRoute(settings),
-            initialRoute: MyRouter.home,
+            initialRoute: MyRouter.splash,
             theme: ThemeUtils.lightTheme,
             themeMode: ThemeMode.light,
             debugShowCheckedModeBanner: false,
